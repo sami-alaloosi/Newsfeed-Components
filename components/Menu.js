@@ -50,6 +50,7 @@ const header = document.querySelector(".header")
 header.appendChild(menuMaker(menuItems))
 
 
+gsap.from(header , {duration: 2, y: '-90%', ease: 'bounce'});
 
 
 

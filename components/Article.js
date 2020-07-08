@@ -159,3 +159,4 @@ const articles = document.querySelector(".articles")
 
 data.forEach(obj => articles.appendChild(articleMaker(obj)))
 
+gsap.from(articles , {duration: 3, opacity: 0, scale: 0.3 , ease: 'back'});
