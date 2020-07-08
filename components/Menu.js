@@ -44,6 +44,7 @@ function menuMaker (array) {
   menuButton.addEventListener('click', () => menu.classList.toggle('menu--open'))
   return menu
 }
+ 
 
 const header = document.querySelector(".header")
 header.appendChild(menuMaker(menuItems))
