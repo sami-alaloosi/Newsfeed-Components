@@ -85,6 +85,18 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  {
+    title: 'sami',
+    date: 'Jan 1st, 3019',
+    firstParagraph: `bla bla blab bla`,
+
+    secondParagraph: `bla bla bla `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -111,3 +123,41 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+{/* <div class="article">
+    <h2>{title of the article}</h2>
+    <p class="date">{date of the article}</p>
+
+    {three separate paragraph elements}
+
+    <span class='expandButton'>+</span>
+  </div> */}
+
+function articleMaker(obj) {
+
+  const article = document.createElement('div')
+  article.className = "article"
+  const title = document.createElement('h2')
+  title.innerText = obj.title
+  const date = document.createElement('p')
+  date.className = "date"
+  date.innerText = obj.date
+  const paragraph1 = document.createElement('p')
+  paragraph1.innerText = obj.firstParagraph
+  const paragraph2 = document.createElement('p')
+  paragraph2.innerText = obj.secondParagraph
+  const paragraph3 = document.createElement('p')
+  paragraph3.innerText = obj.thirdParagraph
+  const expandButton = document.createElement('span')
+  expandButton.className = "expandButton"
+  expandButton.innerText ="+"
+  expandButton.addEventListener('click', ()=>  {(expandButton.innerText ==="+" ? expandButton.innerText = "-" : expandButton.innerText = "+"), (article.classList.toggle('article-open'))  } )
+  article.append(title, date, paragraph1, paragraph2, paragraph3, expandButton)
+  return article 
+}
+const articles = document.querySelector(".articles")
+
+data.forEach(obj => articles.appendChild(articleMaker(obj)))
+
+gsap.from(articles , {duration: 3, opacity: 0, scale: 0.3 , ease: 'back'});
+
