@@ -151,7 +151,7 @@ function articleMaker(obj) {
   const expandButton = document.createElement('span')
   expandButton.className = "expandButton"
   expandButton.innerText ="+"
-  expandButton.addEventListener('click', ()=> article.classList.toggle('article-open'))
+  expandButton.addEventListener('click', ()=>  {(expandButton.innerText ==="+" ? expandButton.innerText = "-" : expandButton.innerText = "+"), (article.classList.toggle('article-open'))  } )
   article.append(title, date, paragraph1, paragraph2, paragraph3, expandButton)
   return article 
 }
@@ -160,3 +160,4 @@ const articles = document.querySelector(".articles")
 data.forEach(obj => articles.appendChild(articleMaker(obj)))
 
 gsap.from(articles , {duration: 3, opacity: 0, scale: 0.3 , ease: 'back'});
+
